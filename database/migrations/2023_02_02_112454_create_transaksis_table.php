@@ -20,7 +20,7 @@ class CreateTransaksisTable extends Migration
             $table->foreignId('member_id')->constrained('members');
             $table->integer('id_member');
             $table->dateTime('tgl');
-            $table->dateTime('batas_waktuu');
+            $table->dateTime('batas_waktu');
             $table->dateTime('tgl_bayar');
             $table->integer('biaya_tambahan');
             $table->double('diskon');
