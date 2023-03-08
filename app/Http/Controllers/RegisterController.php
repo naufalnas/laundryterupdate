@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'nama' => 'required',
             'username' => 'required|unique:users,username',
             'password' => 'required',
-            'outlet_id' => 'required',
+            'outlets_id' => 'required',
         ],
     );
     user::create([
@@ -31,7 +31,7 @@ class RegisterController extends Controller
         'username' => Str::lower($data['username']),
         'password' => bcrypt($data['password']),
         'role' => 'owner',
-        'outlet_id' => Str::lower($data['outlet_id']),
+        'outlets_id' => Str::lower($data['outlets_id']),
     ]);
     return redirect('/login');
     }

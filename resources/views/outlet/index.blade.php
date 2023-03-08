@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('judul')
-    <h1>Index Outlet</h1>
+    <h1>Ini Halaman Index Outlet</h1>
 @endsection
 
 @section('content')
@@ -15,12 +15,12 @@
               <i class="fas fa-times"></i>
             </button>
           </div>
-      <h3 class="card-title">DataTable with minimal features & hover style</h3>
+      <h3 class="card-title">Data Outlet</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <a href="student/create" class="btn btn-primary">
-          <i class="fas fa-plus"></i>
+    <a href="outlet/create" class="btn btn-primary mb-3">
+    <i class="fas fa-plus-square"></i>
            Tambah
         </a>
       <table id="example2" class="table table-bordered table-hover">

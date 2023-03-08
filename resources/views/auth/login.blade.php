@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NAUFALNAS | LOGIN</title>
+  <title>DiCUCiiN | LOGIN</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,20 +14,38 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
 </head>
+<style>
+    button {
+      transition: width 2s;
+    }
+    button:hover {
+      opacity: 0.7;
+    }
+    body {
+      
+       background-image: url("{{asset('adminlte/dist/img/Bannerlaundry.jpg')}}");
+       height: 100%;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Laundry</b>Jaya</a>
+      <a href="../../index2.html" class="h1"><b>Best Your</b></a>
+      
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <img src="{{ asset('adminlte/dist/img/dicuciin4.png') }}">
 
       <form action="{{ route('login.proses') }}" method="post">
       @csrf
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Text">
+          <input type="text" name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

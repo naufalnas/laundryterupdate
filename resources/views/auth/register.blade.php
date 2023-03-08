@@ -14,14 +14,31 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('adminlte/dist/css/adminlte.min.css')}}">
 </head>
+<style>
+    button {
+      transition: width 2s;
+    }
+    button:hover {
+      opacity: 0.7;
+    }
+    body {
+      
+       background-image: url("{{asset('adminlte/dist/img/Bannerlaundry.jpg')}}");
+       height: 100%;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Laundry</b>Jaya</a>
+      <a href="../../index2.html" class="h1"><b>Best Your</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Register a new membership</p>
+    <img src="{{ asset('adminlte/dist/img/dicuciin4.png') }}">
 
       <form action="{{ route('register.store')}}" method="post">
         @csrf
@@ -49,7 +66,7 @@
             </div>
           </div>
         </div>
-        <select class="form-select" aria-label="Default select example" name="outlet_id">
+        <select class="form-select" aria-label="Default select example" name="outlets_id">
         <option selected>Open this select menu</option>
             @foreach($outlets as $item)
             <option value="{{$item->id}}">{{ $item->id }}</option>

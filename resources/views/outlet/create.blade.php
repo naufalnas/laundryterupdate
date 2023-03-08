@@ -1,7 +1,7 @@
-@extends('master')
+@extends('template.master')
 
 @section('judul')
-<h1>Create Outlet</h1>
+<h1>Ini Halaman Create Outlet</h1>
 @endsection
 
 @section('content')
@@ -11,15 +11,13 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route(outlet.store')}}" method="POST">
+              <form action="{{ route('outlet.store')}}" method="POST">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nama_outlet">Nama</label>
                     <input type="text" name="nama" class="form-control" placeholder="Enter Your Name">
                   </div>
-
-                <div class="card-body">
                   <div class="form-group">
                     <label for="nama_outlet">Alamat</label>
                     <input type="text" name="alamat" class="form-control" placeholder="Enter Your Alamat">

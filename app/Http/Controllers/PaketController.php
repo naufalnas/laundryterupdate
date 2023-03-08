@@ -31,7 +31,7 @@ class PaketController extends Controller
         //
         $paket = Paket::all();
         $outlet = Outlet::all();
-        return view('paket.index', compact('paket', 'outlet'));
+        return view('paket.create', compact('paket', 'outlet'));
     }
 
     /**
@@ -44,13 +44,13 @@ class PaketController extends Controller
     {
         //
         $request->validate([
-            'outlet_id' => 'required',
+            'outlets_id' => 'required',
             'jenis' => 'required',
             'nama_paket' => 'required',
             'harga' => 'required',
         ]);
         Paket::create([
-            'outlet_id' =>$request->outlet_id,
+            'outlets_id' =>$request->outlets_id,
             'jenis' => $request->jenis,
             'nama_paket' => $request->nama_paket,
             'harga' => $request->harga,
@@ -67,6 +67,8 @@ class PaketController extends Controller
     public function show(Paket $paket)
     {
         //
+        $paket = Paket::find($paket->id);
+        return view('paket.show', compact('paket'));
     }
 
     /**
@@ -78,6 +80,8 @@ class PaketController extends Controller
     public function edit(Paket $paket)
     {
         //
+        $paket = Paket::find($paket->id);
+        return view('paket.edit', compact('paket'));
     }
 
     /**
@@ -90,6 +94,19 @@ class PaketController extends Controller
     public function update(Request $request, Paket $paket)
     {
         //
+        $request->validate([
+            'outlets_id' => 'required',
+            'jenis' => 'required',
+            'nama_paket' => 'required',
+            'harga' => 'required',
+        ]);
+        $paket = Paket::find($paket->id);
+        $paket->outlets_id = $request->outlets_id;
+        $paket->jenis = $request->jenis;
+        $paket->nama_paket = $request->nama_paket;
+        $paket->harga = $request->harga;
+        $paket->update();
+        return redirect('/paket');
     }
 
     /**
@@ -101,5 +118,8 @@ class PaketController extends Controller
     public function destroy(Paket $paket)
     {
         //
+        $paket = Paket::find($paket->id);
+        $paket->delete();
+        return redirect('/paket');
     }
 }
