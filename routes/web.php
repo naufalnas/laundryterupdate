@@ -39,19 +39,19 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout.admin');
 
 //ROUTE DASHBOARD
 Route::get('/dashboard/admin', [DashboardController::class, 'admin'])->name('dashboard.admin')->middleware('auth', 'role:admin');
-Route::get('/dashboard/kasir', [DashboardController::class, 'kasir'])->name('dashboard.kasir')->middleware('auth', 'role:admin,kasir');
-Route::get('/dashboard/owner', [DashboardController::class, 'owner'])->name('dashboard.owner')->middleware('auth', 'role:admin,owner');
+Route::get('/dashboard/kasir', [DashboardController::class, 'kasir'])->name('dashboard.kasir')->middleware('auth', 'role:kasir');
+Route::get('/dashboard/owner', [DashboardController::class, 'owner'])->name('dashboard.owner')->middleware('auth', 'role:owner');
 
 Route::view('error/403', 'error.403')->name('error.403');
 
-Route::resource('outlet', OutletController::class)->middleware('auth', 'role:admin');
-Route::resource('paket', PaketController::class)->middleware('auth', 'role:admin');
-Route::resource('member', MemberController::class)->middleware('auth', 'role:admin,kasir');
-Route::resource('user', UserController::class)->middleware('auth','role:admin');
-Route::resource('transaksi', TransaksiController::class)->middleware('auth','role:admin');
+Route::resource('outlet', OutletController::class)->middleware('auth', 'role:outlet');
+Route::resource('paket', PaketController::class)->middleware('auth', 'role:paket');
+Route::resource('member', MemberController::class)->middleware('auth', 'role:member');
+Route::resource('user', UserController::class)->middleware('auth','role:user');
+Route::resource('transaksi', TransaksiController::class)->middleware('auth','role:transaksi');
 //Route::resource('transaksi', TransaksiController::class);
 
-Route::middleware(['auth', 'role:kasir,admin'])->group(function(){
+Route::middleware(['auth', 'role:kasir'])->group(function(){
     Route::post('transaksi/baru', [TransaksiController::class, 'create'])->name('transaksi.baru');
     Route::get('transaksi/{transaksi}', [TransaksiController::class, 'edit'])->name('transaksi.proses');
     Route::post('transaksi/simpan', [TransaksiController::class, 'store'])->name('transaksi.store');

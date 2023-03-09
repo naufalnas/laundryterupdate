@@ -23,7 +23,7 @@
              <div class="form-group">
                <label for="Kode_Invoice">Kode Invoice</label>
                <input type="text" name="kode_invoice" class="form-control" id="Kode_Invoice" 
-               placeholder="Kode Invoide" value="{{$transaksi->kode_invoice}}">
+               placeholder="Kode Invoice" value="{{$transaksi->kode_invoice}}">
              </div>
              <div class="form-group">
               <label for="member_id">Member Id</label>
